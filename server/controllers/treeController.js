@@ -27,11 +27,11 @@ const getTree = async (req, res) => {
 
 // create new tree
 const createTree = async (req, res) => {
-    const {treenum, photonum, notes} = req.body
+    const {treenum, photonum, waypoint, species, height, hollowsmall, hollowmedium, hollowlarge, notes} = req.body
 
     // add doc to db
     try {
-        const tree = await Tree.create({treenum, photonum, notes})
+        const tree = await Tree.create({treenum, photonum, waypoint, species, height, hollowsmall, hollowmedium, hollowlarge, notes})
         res.status(200).json(tree)
     } catch (error) {
         res.status(400).json({error: error.message})

@@ -11,6 +11,30 @@ const treeSchema = new Schema({
         type: Number,
         required: true
     },
+    waypoint: {
+        type: String,
+        required: true
+    },
+    species: {
+        type: String,
+        required: true
+    },
+    height: {
+        type: Number,
+        required: true
+    },
+    hollowsmall: {
+        type: Number,
+        required: true
+    },
+    hollowmedium: {
+        type: Number,
+        required: true
+    },
+    hollowlarge: {
+        type: Number,
+        required: true
+    },
     notes: {
         type: String,
         required: true
