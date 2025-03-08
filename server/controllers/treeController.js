@@ -25,7 +25,7 @@ const getTree = async (req, res) => {
     res.status(200).json(tree)
 }
 
-// create new workout
+// create new tree
 const createTree = async (req, res) => {
     const {treenum, photonum, notes} = req.body
 
@@ -38,14 +38,48 @@ const createTree = async (req, res) => {
     }  
 }
 
-// delete a workout
+// delete a tree
+    const deleteTree = async (req, res) => {
+        const { id } = req.params
 
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(404).json({error: "No such tree"})
+        }
 
-// update a workout
+        const tree = await Tree.findOneAndDelete({_id: id})
+
+        if (!tree) {
+            return res.status(400).json({error: "No such tree"})
+        }
+
+        res.status(200).json(tree)
+    }
+
+// update a tree
+const updateTree = async (req, res) => {
+    const { id } = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({error: "No such tree"})
+    }
+
+    const tree = await Tree.findOneAndUpdate({_id: id}, {
+        ...req.body
+    })
+
+    if (!tree) {
+        return res.status(400).json({error: "No such tree"})
+    }
+
+    res.status(200).json(tree)
+}
+
 
 
 module.exports = {
     getTrees,
     getTree,
-    createTree
+    createTree,
+    deleteTree, 
+    updateTree
 }

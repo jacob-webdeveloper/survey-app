@@ -2,7 +2,9 @@ const express = require("express")
 const {
     getTrees,
     getTree,
-    createTree
+    createTree,
+    deleteTree,
+    updateTree
 } = require("../controllers/treeController")
 
 const router = express.Router()
@@ -17,13 +19,9 @@ router.get("/:id", getTree)
 router.post("/", createTree)
 
 // DELETE a tree
-router.delete("/:id", (req, res) => {
-    res.json({mssg: "DELETE a tree"})
-})
+router.delete("/:id", deleteTree)
 
 // UPDATE a tree
-router.patch("/:id", (req, res) => {
-    res.json({mssg: "PATCH a tree"})
-})
+router.patch("/:id", updateTree)
 
 module.exports = router
