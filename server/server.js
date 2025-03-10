@@ -4,12 +4,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 const treeRoutes = require("./routes/trees");
 
+
+const app = express();
+
 const cors = require("cors");
 app.use(cors({
     origin: "https://survey-app-jacobk.netlify.app"
+    methods: "GET, POST, PUT, DELETE",
+    allowedHeaders: "Content-type,Authorization"
 }));
-
-const app = express();
 
 
 app.use(express.json());
