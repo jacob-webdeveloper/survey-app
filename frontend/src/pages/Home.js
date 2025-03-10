@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 
 import TreeDetails from "../components/TreeDetails"
+import TreeForm from "../components/TreeForm"
 
 const Home = () => {
     const [trees, setTrees] = useState(null)
@@ -25,6 +26,7 @@ const Home = () => {
                     <TreeDetails tree={tree} key={tree._id} />
                 ))}
             </div>
+            <TreeForm />
         </div>
     )
 }
