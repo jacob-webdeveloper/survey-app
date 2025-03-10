@@ -10,8 +10,8 @@ const app = express();
 
 
 let corsOptions = {
-    origin: "https://survey-app-jacobk.netlify.app", "http://localhost:3000", "http://localhost:4000" 
-    methods: "GET, POST, PUT, DELETE",
+    origin: ["https://survey-app-jacobk.netlify.app", "http://localhost:3000", "http://localhost:4000"],
+    methods: ["GET, POST, PUT, DELETE"],
 }
 
 app.use(cors(corsOptions));
