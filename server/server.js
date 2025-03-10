@@ -1,42 +1,36 @@
-require("dotenv").config()
+require("dotenv").config();
 
-const express = require("express")
-const mongoose = require("mongoose")
-const treeRoutes = require("./routes/trees")
+const express = require("express");
+const mongoose = require("mongoose");
+const treeRoutes = require("./routes/trees");
 
-// express app
-const app = express()
 
-// middleware
-app.use(express.json())
+const app = express();
+
+
+app.use(express.json());
 
 app.use((req, res, next) => {
-    console.log(req.path, req.method)
-    next()
-})
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
+    next();
+});
 
-if (require.main === module) {
-    const PORT = process.env.PORT || 4000;
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
-  }
+app.use("/api/trees", treeRoutes);
 
-  module.exports = app;
 
-// routes
-app.use("/api/trees", treeRoutes)
-
-// Connect to db
-mongoose.connect(process.env.MONGO_URI)
+mongoose
+    .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-        // listen for requests
-    app.listen(process.env.PORT, () => {
-        console.log("connected to db & listening on port", process.env.PORT)
+        const PORT = process.env.PORT || 4001;
+        app.listen(PORT, () => {
+            console.log(`✅ Connected to MongoDB & server running on port ${PORT}`);
+        });
     })
-    })  
     .catch((error) => {
-        console.log(error)
-    })
+        console.error("Database connection error:", error);
+    });
+
+module.exports = app;
+
 
 
