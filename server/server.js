@@ -9,13 +9,12 @@ const cors = require("cors");
 const app = express();
 
 
-app.use(cors({
-    origin: "https://survey-app-jacobk.netlify.app", 
-    methods: "GET, POST, PUT, DELETE, OPTIONS",
-    allowedHeaders: "Content-Type, Authorization"
-}));
+let corsOptions = {
+    origin: "https://survey-app-jacobk.netlify.app", "http://localhost:3000", "http://localhost:4000" 
+    methods: "GET, POST, PUT, DELETE",
+}
 
-app.options("*", cors());
+app.use(cors(corsOptions));
 
 
 app.use(express.json());
