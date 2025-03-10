@@ -3,13 +3,13 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const treeRoutes = require("./routes/trees");
+const cors = require("cors");
 
 
 const app = express();
 
-const cors = require("cors");
 app.use(cors({
-    origin: "https://survey-app-jacobk.netlify.app"
+    origin: "https://survey-app-jacobk.netlify.app",
     methods: "GET, POST, PUT, DELETE",
     allowedHeaders: "Content-type,Authorization"
 }));
