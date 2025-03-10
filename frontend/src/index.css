@@ -49,7 +49,7 @@ header a {
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
 }
 
-.tree-details h3 {
+.tree-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
   color: var(--primary);
