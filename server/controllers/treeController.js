@@ -29,6 +29,40 @@ const getTree = async (req, res) => {
 const createTree = async (req, res) => {
     const {treenum, photonum, waypoint, species, height, hollowsmall, hollowmedium, hollowlarge, notes} = req.body
 
+    let emptyFields = []
+
+    if (!treenum) {
+        emptyFields.push("treenum")
+    }
+    if (!photonum) {
+        emptyFields.push("photonum")
+    }
+    if (!waypoint) {
+        emptyFields.push("waypoint")
+    }
+    if (!species) {
+        emptyFields.push("species")
+    }
+    if (!height) {
+        emptyFields.push("height")
+    }
+    if (!hollowsmall) {
+        emptyFields.push("hollowsmall")
+    }
+    if (!hollowmedium) {
+        emptyFields.push("hollowmedium")
+    }
+    if (!hollowlarge) {
+        emptyFields.push("hollowlarge")
+    }
+    if (!notes) {
+        emptyFields.push("notes")
+    }
+    if(emptyFields.length > 0) {
+        return res.status(400).json({error: "Please fill in all the fields", emptyFields})
+    }
+
+
     // add doc to db
     try {
         const tree = await Tree.create({treenum, photonum, waypoint, species, height, hollowsmall, hollowmedium, hollowlarge, notes})

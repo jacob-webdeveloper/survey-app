@@ -13,6 +13,7 @@ const TreeForm = () => {
     const [hollowlarge, setHollowlarge] = useState("")
     const [notes, setNotes] = useState("")
     const [error, setError] = useState(null)
+    const [emptyFields, setEmptyFields] = useState([])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -30,6 +31,7 @@ const TreeForm = () => {
 
         if (!response.ok) {
             setError(json.error)
+            setEmptyFields(json.emptyFields)
         }
         if (response.ok) {
             setTreenum("")
@@ -42,6 +44,7 @@ const TreeForm = () => {
             setHollowlarge("")
             setNotes("")
             setError(null)
+            setEmptyFields([])
             console.log("new tree added", json)
             dispatch({type: "CREATE_TREE", payload: json})
         }
@@ -56,6 +59,7 @@ const TreeForm = () => {
                 type="number"
                 onChange={(e) => setTreenum(e.target.value)}
                 value={treenum}
+                className={emptyFields}
             />
 
             <label>Photo Number: </label>
