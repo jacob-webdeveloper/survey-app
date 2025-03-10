@@ -11,7 +11,7 @@ const Home = () => {
 
     useEffect(() => {
         const fetchTrees = async () => {
-            const response = await fetch("/api/trees")
+            const response = await fetch("https://survey-app-mlwf.onrender.com/api/trees")
             const json = await response.json()
 
             if (response.ok) {
