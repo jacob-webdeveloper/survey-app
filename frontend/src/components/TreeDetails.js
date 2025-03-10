@@ -2,13 +2,13 @@ import { useTreesContext } from "../hooks/useTreesContext"
 
 import formatDistanceToNow from "date-fns/formatDistanceToNow"
 
-// const API_URL = process.env.REACT_APP_API_URL || "https://survey-app-mlwf.onrender.com/api/trees";
+const API_URL = process.env.REACT_APP_API_URL || "https://survey-app-mlwf.onrender.com/api/trees";
 
 const TreeDetails = ({ tree }) => {
     const { dispatch } = useTreesContext()
 
     const handleClick = async () => {
-        const response = await fetch(("/api/trees") + tree._id, {
+        const response = await fetch(API_URL + tree._id, {
             method: "DELETE"
         })
         
