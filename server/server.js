@@ -15,6 +15,15 @@ app.use((req, res, next) => {
     next()
 })
 
+if (require.main === module) {
+    const PORT = process.env.PORT || 4000;
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  }
+
+  module.exports = app;
+
 // routes
 app.use("/api/trees", treeRoutes)
 
