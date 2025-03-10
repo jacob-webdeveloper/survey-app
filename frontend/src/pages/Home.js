@@ -11,7 +11,7 @@ const Home = () => {
 
     useEffect(() => {
         const fetchTrees = async () => {
-            const response = await fetch(`${API_URL}`)
+            const response = await fetch(API_URL)
             const json = await response.json()
 
             if (response.ok) {
