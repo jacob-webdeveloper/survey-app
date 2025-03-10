@@ -22,7 +22,7 @@ const TreeForm = () => {
 
         const tree = {treenum, photonum, waypoint, species, height, hollowsmall, hollowmedium, hollowlarge, notes}
 
-        const response = await fetch(("/api/trees"), {
+        const response = await fetch(("https://survey-app-mlwf.onrender.com/api/trees"), {
             method: "POST",
             body: JSON.stringify(tree), 
             headers: {
