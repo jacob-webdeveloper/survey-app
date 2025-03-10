@@ -2,7 +2,7 @@ const TreeDetails = ({ tree }) => {
 
     return (
         <div className="tree-details">
-            <p><strong>Tree No.: </strong>{tree.treenum}</p>
+            <h4><strong>Tree No.: </strong>{tree.treenum}</h4>
             <p>Tree Photo No.: {tree.photonum}</p>
             <p>Tree Waypoint: {tree.waypoint}</p>
             <p><strong>Tree Species: </strong>{tree.species}</p>
