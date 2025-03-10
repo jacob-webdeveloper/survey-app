@@ -9,17 +9,13 @@ const cors = require("cors");
 const app = express();
 
 
-app.use(cors());
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Origin, Content-Type, Authorization");
-    if (req.method === "OPTIONS") {
-        return res.sendStatus(200); 
-    }
-    next
+app.use(cors({
+    origin: "https://survey-app-jacobk.netlify.app", 
+    methods: "GET, POST, PUT, DELETE, OPTIONS",
+    allowedHeaders: "Content-Type, Authorization"
+}));
 
-
+app.options("*", cors());
 
 
 app.use(express.json());
@@ -37,7 +33,7 @@ mongoose
     .then(() => {
         const PORT = process.env.PORT || 4001;
         app.listen(PORT, () => {
-            console.log(`✅ Connected to MongoDB & server running on port ${PORT}`);
+            console.log( `Connected to MongoDB & server running on port ${PORT}`);
         });
     })
     .catch((error) => {
