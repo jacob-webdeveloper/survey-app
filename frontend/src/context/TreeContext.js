@@ -26,7 +26,6 @@ export const TreeContextProvider = ({ children }) => {
     trees: []
    })
 
-//    dispatch({type: "SET_TREES", payload: [{}, {}]})
    
     return (
         <TreesContext.Provider value={{...state, dispatch}}>
