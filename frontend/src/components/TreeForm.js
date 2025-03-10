@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { useTreesContext } from "../hooks/useTreesContext"
 
 const TreeForm = () => {
+    const  { dispatch } = useTreesContext()
     const [treenum, setTreenum] = useState("")
     const [photonum, setPhotonum] = useState("")
     const [waypoint, setWaypoint] = useState("")
@@ -40,7 +42,8 @@ const TreeForm = () => {
             setHollowlarge("")
             setNotes("")
             setError(null)
-            console.log("new workout added", json)
+            console.log("new tree added", json)
+            dispatch({type: "CREATE_TREE", payload: json})
         }
     }
 

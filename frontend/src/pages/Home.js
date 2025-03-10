@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import { useTreesContext } from "../hooks/useTreesContext"
 
 import TreeDetails from "../components/TreeDetails"
 import TreeForm from "../components/TreeForm"
 
 const Home = () => {
-    const [trees, setTrees] = useState(null)
+    const {trees, dispatch} = useTreesContext()
 
     useEffect(() => {
         const fetchTrees = async () => {
@@ -12,7 +13,7 @@ const Home = () => {
             const json = await response.json()
 
             if (response.ok) {
-                setTrees(json)
+                dispatch({type: "SET_TREES", payload: json})
             }
         }
 

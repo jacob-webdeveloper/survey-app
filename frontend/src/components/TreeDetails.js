@@ -1,4 +1,17 @@
+import { useTreesContext } from "../hooks/useTreesContext"
+
 const TreeDetails = ({ tree }) => {
+    const { dispatch } = useTreesContext()
+    const handleClick = async () => {
+        const response = await fetch("/api/trees/" + tree._id, {
+            method: "DELETE"
+        })
+        const json = await response.json()
+
+        if (response.ok) {
+            dispatch({type: "DELETE_workout", payload: json})
+        }
+    }
 
     return (
         <div className="tree-details">
@@ -11,6 +24,7 @@ const TreeDetails = ({ tree }) => {
             <p>Tree Hollows Medium: {tree.hollowmedium}</p>
             <p>Tree Hollows Large: {tree.hollowlarge}</p>
             <p>{tree.createdAt}</p>
+            <span onClick={handleClick}>delete</span>
         </div>
     )
 }
