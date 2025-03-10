@@ -24,7 +24,7 @@ const TreeDetails = ({ tree }) => {
             <p>Tree Hollows Medium: {tree.hollowmedium}</p>
             <p>Tree Hollows Large: {tree.hollowlarge}</p>
             <p>{tree.createdAt}</p>
-            <span onClick={handleClick}>delete</span>
+            <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
         </div>
     )
 }

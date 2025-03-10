@@ -59,7 +59,7 @@ const TreeForm = () => {
                 type="number"
                 onChange={(e) => setTreenum(e.target.value)}
                 value={treenum}
-                className={emptyFields}
+                className={emptyFields.includes("treenum") ? "error" : ""}
             />
 
             <label>Photo Number: </label>
@@ -67,6 +67,7 @@ const TreeForm = () => {
                 type="text"
                 onChange={(e) => setPhotonum(e.target.value)}
                 value={photonum}
+                className={emptyFields.includes("photonum") ? "error" : ""}
             />
 
             <label>Waypoint: </label>
@@ -74,6 +75,7 @@ const TreeForm = () => {
                 type="text"
                 onChange={(e) => setWaypoint(e.target.value)}
                 value={waypoint}
+                className={emptyFields.includes("waypoint") ? "error" : ""}
             />
 
             <label>Species: </label>
@@ -81,6 +83,7 @@ const TreeForm = () => {
                 type="text"
                 onChange={(e) => setSpecies(e.target.value)}
                 value={species}
+                className={emptyFields.includes("species") ? "error" : ""}
             />
 
             <label>Height in (m): </label>
@@ -88,6 +91,7 @@ const TreeForm = () => {
                 type="number"
                 onChange={(e) => setHeight(e.target.value)}
                 value={height}
+                className={emptyFields.includes("height") ? "error" : ""}
             />
 
             <label>Number of Small Hollows: </label>
@@ -95,6 +99,7 @@ const TreeForm = () => {
                 type="number"
                 onChange={(e) => setHollowsmall(e.target.value)}
                 value={hollowsmall}
+                className={emptyFields.includes("hollowsmall") ? "error" : ""}
             />  
 
             <label>Number of Medium Hollows: </label>
@@ -102,6 +107,7 @@ const TreeForm = () => {
                 type="number"
                 onChange={(e) => setHollowmedium(e.target.value)}
                 value={hollowmedium}
+                className={emptyFields.includes("hollowmedium") ? "error" : ""}
             />    
 
             <label>Number of Large Hollows: </label>
@@ -109,6 +115,7 @@ const TreeForm = () => {
                 type="number"
                 onChange={(e) => setHollowlarge(e.target.value)}
                 value={hollowlarge}
+                className={emptyFields.includes("hollowlarge") ? "error" : ""}
             />
 
             <label>Additional Notes: </label>
@@ -116,6 +123,7 @@ const TreeForm = () => {
                 type="text"
                 onChange={(e) => setNotes(e.target.value)}
                 value={notes}
+                className={emptyFields.includes("notes") ? "error" : ""}
             />
 
             <button>Add Tree</button>
