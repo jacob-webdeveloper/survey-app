@@ -4,14 +4,14 @@ import { useTreesContext } from "../hooks/useTreesContext"
 import TreeDetails from "../components/TreeDetails"
 import TreeForm from "../components/TreeForm"
 
-const API_URL = process.env.REACT_APP_API_URL || "https://survey-app-mlwf.onrender.com/api/trees";
+// const API_URL = process.env.REACT_APP_API_URL || "https://survey-app-mlwf.onrender.com/api/trees";
 
 const Home = () => {
     const {trees, dispatch} = useTreesContext()
 
     useEffect(() => {
         const fetchTrees = async () => {
-            const response = await fetch(API_URL)
+            const response = await fetch("/api/trees")
             const json = await response.json()
 
             if (response.ok) {
