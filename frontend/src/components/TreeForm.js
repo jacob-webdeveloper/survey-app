@@ -1,8 +1,6 @@
 import { useState } from "react"
 import { useTreesContext } from "../hooks/useTreesContext"
 
-const API_URL = process.env.REACT_APP_API_URL || "https://survey-app-mlwf.onrender.com/api/trees";
-
 const TreeForm = () => {
     const  { dispatch } = useTreesContext()
     const [treenum, setTreenum] = useState("")
@@ -22,7 +20,7 @@ const TreeForm = () => {
 
         const tree = {treenum, photonum, waypoint, species, height, hollowsmall, hollowmedium, hollowlarge, notes}
 
-        const response = await fetch(API_URL, {
+        const response = await fetch(("/api/trees"), {
             method: "POST",
             body: JSON.stringify(tree), 
             headers: {
