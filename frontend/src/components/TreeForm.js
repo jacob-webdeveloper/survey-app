@@ -22,7 +22,7 @@ const TreeForm = () => {
 
         const tree = {treenum, photonum, waypoint, species, height, hollowsmall, hollowmedium, hollowlarge, notes}
 
-        const response = await fetch(`${API_URL}`, {
+        const response = await fetch(API_URL, {
             method: "POST",
             body: JSON.stringify(tree), 
             headers: {

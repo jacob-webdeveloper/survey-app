@@ -8,7 +8,7 @@ const TreeDetails = ({ tree }) => {
     const { dispatch } = useTreesContext()
 
     const handleClick = async () => {
-        const response = await fetch(`${API_URL}` + tree._id, {
+        const response = await fetch(API_URL + tree._id, {
             method: "DELETE"
         })
         
