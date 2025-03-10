@@ -18,7 +18,7 @@ const Home = () => {
         }
 
         fetchTrees()
-    }, [])
+    }, [dispatch])
 
     return (
         <div className="home">

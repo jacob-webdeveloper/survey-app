@@ -14,7 +14,7 @@ export const treesReducer = (state, action) => {
             }
         case "DELETE_TREE":
             return {
-                trees: state.trees.filter((t) => t._id !== action.payload._id)
+                trees: state.trees.filter(t => t._id !== action.payload._id)
             }
         default: 
             return state

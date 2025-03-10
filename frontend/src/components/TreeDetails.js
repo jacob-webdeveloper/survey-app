@@ -4,6 +4,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow"
 
 const TreeDetails = ({ tree }) => {
     const { dispatch } = useTreesContext()
+
     const handleClick = async () => {
         const response = await fetch("/api/trees/" + tree._id, {
             method: "DELETE"
@@ -11,7 +12,7 @@ const TreeDetails = ({ tree }) => {
         const json = await response.json()
 
         if (response.ok) {
-            dispatch({type: "DELETE_workout", payload: json})
+            dispatch({type: "DELETE_TREE", payload: json})
         }
     }
 
