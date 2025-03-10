@@ -1,5 +1,7 @@
 import { useTreesContext } from "../hooks/useTreesContext"
 
+import formatDistanceToNow from "date-fns/formatDistanceToNow"
+
 const TreeDetails = ({ tree }) => {
     const { dispatch } = useTreesContext()
     const handleClick = async () => {
@@ -23,7 +25,7 @@ const TreeDetails = ({ tree }) => {
             <p>Tree Hollows Small: {tree.hollowsmall}</p>
             <p>Tree Hollows Medium: {tree.hollowmedium}</p>
             <p>Tree Hollows Large: {tree.hollowlarge}</p>
-            <p>{tree.createdAt}</p>
+            <p>{formatDistanceToNow(new Date(tree.createdAt), { addSuffix: true })}</p>
             <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
         </div>
     )
