@@ -8,11 +8,8 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(cors({
-    origin: "https://survey-app-jacobk.netlify.app",
-    methods: "GET, POST, PUT, DELETE",
-    allowedHeaders: "Content-type,Authorization"
-}));
+app.use(cors()); 
+
 
 
 app.use(express.json());
