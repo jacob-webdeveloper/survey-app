@@ -1,5 +1,5 @@
 [[redirects]]
   from = "/api/*"
-  to = "https://survey-app-mlwf.onrender.com/api/:splat"
+  to = "https://survey-app-mlwf.onrender.com/"
   status = 200
   force = true
